@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>How to import CSS, JS, fonts or any other resource in React-Native-WebView</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		body{
+			font-family: roboto;
+			margin: 0;
+			background: #fff;
+		}
+        .body-root{
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+		*,*:after,*:before{
+			box-sizing: border-box;
+		}
+		a{
+			color: inherit;
+			text-decoration:none;
+		}
+		a:hover{
+			text-decoration: underline;
+		}
+	</style>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-54386178-2', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+    </head>
+    <body>
+        <div class='body-root'>
+            <h1>
+                How to import CSS, JS, fonts or any other resource in React Native WebView?
+            </h1>
+            <p>
+                I spent last one day searching and implementing things which people said would work.
+                <br/>
+                In the end it did work, but as I said it took a whole day.
+            </p>
+            <h2>
+                 First of all, what was I trying to achieve?
+            </h2>
+            <p>
+                I was trying to create a generic WebViewWrapper to which I can pass resources.
+                <br/>
+                I wanted WebViewWrapper to create and inject scripts, CSS, fonts or any other resource needed.
+            </p>
+            <h2>
+                Solution
+            </h2>
+            <div style='width: 100%;max-width:800px;'>
+                <script src="https://gist.github.com/asaharan/9f9686313c0e1a4136e225139bbbb279.js"></script>
+            </div>
+            <p>
+                The mistake I made was not setting <i>mixedContentMode</i> to <i>always</i>.
+                <br/>
+                <i>baseUrl</i> is also needed for it to work.
+            </p>
+        </div>
+        <style>
+            .gist .gist-file, .gist-data{
+                max-height: 500px;
+                width: 100%;
+                overflow: auto;
+                position: relative;
+            }
+            .gist-meta{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+        </style>
+
+    </body>
+</html>
